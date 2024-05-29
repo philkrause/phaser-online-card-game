@@ -5,6 +5,7 @@ import InteractiveHandler from '../helpers/InteractiveHandler';
 import NetworkHandler from '../helpers/NetworkHandler';
 import UIHandler from '../helpers/UIHandler';
 
+
 export default class Game extends Phaser.Scene {
     constructor() {
         super({
@@ -13,7 +14,6 @@ export default class Game extends Phaser.Scene {
     }
 
     preload() {
-
         this.load.image('cyanCardBack', 'src/assets/CyanCardBack.png');
         this.load.image('magentaCardBack', 'src/assets/MagentaCardBack.png');
         this.load.image('cyanPing', 'src/assets/Cyan_Ping3x.png');
@@ -22,13 +22,10 @@ export default class Game extends Phaser.Scene {
         this.load.image('darkback', 'src/assets/darkback.png');
         this.load.image('lightback', 'src/assets/lightback.png');
         this.load.image('luke', 'src/assets/13Luke.png');
-
-
-
+        
     }
 
     create() {
-
         this.CardHandler = new CardHandler();
         this.DeckHandler = new DeckHandler(this);
         this.GameHandler = new GameHandler(this);
@@ -36,7 +33,6 @@ export default class Game extends Phaser.Scene {
         this.UIHandler = new UIHandler(this);
         this.UIHandler.buildUI();
         this.InteractiveHandler = new InteractiveHandler(this);
-
     }
 
     update() {

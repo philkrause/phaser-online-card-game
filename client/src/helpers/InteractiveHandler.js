@@ -19,7 +19,7 @@ export default class InteractiveHandler {
         scene.input.on('pointerover', (event, gameObjects) => {
             let pointer = scene.input.activePointer;
             if (gameObjects[0].type === "Image" && gameObjects[0].data.list.name !== "cardBack") {
-                scene.cardPreview = scene.add.image(pointer.worldX, pointer.worldY-300, gameObjects[0].data.values.sprite).setScale(0.5, 0.5);
+                scene.cardPreview = scene.add.image(pointer.worldX, pointer.worldY-300, gameObjects[0].data.values.sprite).setScale(0.25, 0.25);
             };
         });
 

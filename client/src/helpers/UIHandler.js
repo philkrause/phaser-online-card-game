@@ -5,41 +5,56 @@ export default class UIHandler {
 
         this.zoneHandler = new ZoneHandler(scene);
 
-        const sceneCenter = scene.scale.width/2;
-        const sceneHeight = scene.scale.height;
 
-        this.buildZones = () => {
+        //Location Zones
+        const width = scene.scale.width
+        const height = scene.scale.height
+        const zonePad = 600
 
-            console.log(`Screen WIDTH: ${sceneCenter}`)
-            const coordinates = [
-                [(sceneCenter-400), sceneHeight / 2],
-                [sceneCenter, sceneHeight / 2],
-                [sceneCenter+400, sceneHeight / 2]
-            ];
-            coordinates.forEach(([x, y]) => {
-                let dropZone = this.zoneHandler.renderZone(x, y);
-                this.zoneHandler.renderOutline(dropZone);
+        console.log(`WIDTH : ${width}, HEIGHT: ${height}`)
+
+        const zone1 = scene.dropZone = this.zoneHandler.renderZone(zonePad, height/2)
+        const zone2 = scene.dropZone = this.zoneHandler.renderZone(width/2, height/2)
+        const zone3 = scene.dropZone = this.zoneHandler.renderZone(width-zonePad, height/2)
+
+        
+        const dropZones = [zone1, zone2, zone3]
+
+         this.buildZones = () => {
+            dropZones.forEach(zone => {
+                this.zoneHandler.renderOutline(zone);
             });
-            //scene.dropZone = this.zoneHandler.renderZone(470, 500);
-            //this.zoneHandler.renderOutline(scene.dropZone);
         }
+
+        //Player Zones
 
         this.buildPlayerAreas = () => {
 
-            scene.playerHandArea = scene.add.rectangle(470, 860, 850, 230);
-            scene.playerHandArea.setStrokeStyle(4, 0xff69b4);
-            scene.playerDeckArea = scene.add.rectangle(1000, 860, 155, 215);
-            scene.playerDeckArea.setStrokeStyle(3, 0x00ffff);
+            const zonePad = 100
+            const zoneHeight = 200
+            const zoneWidth = 600
+
             
-            scene.opponentHandArea = scene.add.rectangle(470, 135, 850, 230);
+            //OPP HAND
+            scene.opponentHandArea = scene.add.rectangle(width/2,zonePad, zoneWidth, zoneHeight);
             scene.opponentHandArea.setStrokeStyle(4, 0xff69b4);
-            scene.opponentDeckArea = scene.add.rectangle(1000, 135, 155, 215);
+            
+            
+            //OPP DECK
+            scene.opponentDeckArea = scene.add.rectangle(width-100, 135, 155, 215);
             scene.opponentDeckArea.setStrokeStyle(3, 0x00ffff);
             
+            //PLAYER HAND
+            scene.playerHandArea = scene.add.rectangle(width/2,height-zonePad, zoneWidth, zoneHeight);
+            scene.playerHandArea.setStrokeStyle(4, 0xff69b4);
+
+            //PLAYER DECK
+            scene.playerDeckArea = scene.add.rectangle(width-100, height-135, 155, 215);
+            scene.playerDeckArea.setStrokeStyle(3, 0x00ffff);
         }
 
         this.buildGameText = () => {
-            scene.dealCards = scene.add.text(960, 445, "Deal Cards").setFontSize(14).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
+            scene.dealCards = scene.add.text(width-130, height/2, "Deal Cards").setFontSize(18).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
         }
 
         this.buildUI = () => {
