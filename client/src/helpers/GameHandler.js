@@ -3,22 +3,24 @@ export default class GameHandler {
 
         this.playerCards = [];
         this.opponentCards = [];
+        const width = scene.scale.width
+
+        const cardposX = (width/2) - 230
+        const cardposY = scene.scale.height-100
 
         this.draw = (type) => {
             if (type === "playerCards") {
-                const midScreen = scene.scale.width
                 for (let i = 0; i < 4; i++) {
-                    let card = this.playerCards.push(scene.DeckHandler.dealCard(((midScreen/2) - 250) + (i * 155), scene.scale.height-100, "luke", "playerCard"));
+                    let card = this.playerCards.push(scene.DeckHandler.dealCard(cardposX + (i * 155), cardposY, "luke", "playerCard"));
                 }
             } else if (type === "opponentCards") {
-
                 for (let i = 0; i < 4; i++) {
-                    let card = this.opponentCards.push(scene.DeckHandler.dealCard(155 + (i * 155), 135, "cardBack", "opponentCard"));
+                    let card = this.opponentCards.push(scene.DeckHandler.dealCard((cardposX) + (i * 155), 100, "cardBack", "opponentCard"));
                 }
             }
         }
 
-        this.drop = () => {
+        this.drop = (card) => {
             this.opponentCards.shift().destroy();
             scene.DeckHandler.dealCard((scene.dropZone.x - 350) + (scene.dropZone.data.values.cards * 50), scene.dropZone.y, "luke", "opponentCard");
             scene.dropZone.data.values.cards++;

@@ -1,5 +1,9 @@
 import Phaser from "phaser";
+import Lobby from "./scenes/lobby.js";
 import Game from "./scenes/game.js";
+import Title from "./scenes/title.js";
+
+
 
 const config = {
     type: Phaser.AUTO,
@@ -12,7 +16,7 @@ const config = {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
 
-    scene: [Game]
+    scene: [Title,Lobby, Game]
 }
 
 const game = new Phaser.Game(config)

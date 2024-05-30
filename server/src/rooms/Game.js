@@ -32,6 +32,11 @@ export class Game extends Room {
     onJoin(client, options) {
         console.log(client.sessionId, "joined!");
         this.broadcast("server-message", `${client.sessionId} joined.`);
+        this.broadcast("server-message", `${this.clients.length}`)
+        if (this.clients.length === 2) {
+            // Notify both clients that the game is starting
+            this.broadcast("start-game");
+        }
     }
 
     //determine what should happen when a client leaves

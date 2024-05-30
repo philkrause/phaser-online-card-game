@@ -49,7 +49,7 @@ export default class InteractiveHandler {
         })
 
         scene.input.on('drop', (pointer, gameObject, dropZone) => {
-            gameObject.x = (dropZone.x - 350) + (dropZone.data.values.cards * 50);
+            gameObject.x = (dropZone.x-20) + (dropZone.data.values.cards * 50);
             gameObject.y = dropZone.y;
             scene.dropZone.data.values.cards++;
             scene.input.setDraggable(gameObject, false);

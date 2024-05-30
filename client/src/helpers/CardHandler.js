@@ -5,13 +5,13 @@ export default class CardHandler {
                 if (card.texture.key === "lightback") {
                     card.setTexture(card.data.values.sprite);
                 } else {
-                    card.setTexture("lightback");
+                    card.setTexture("darkback");
                 }
             } else if (card.data.values.type === "opponentCard") {
                 if (card.texture.key === "darkback") {
                     card.setTexture(card.data.values.sprite);
                 } else {
-                    card.setTexture("darkback");
+                    card.setTexture("lightback");
                 }
             }
         }

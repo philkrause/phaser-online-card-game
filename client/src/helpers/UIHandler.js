@@ -39,7 +39,6 @@ export default class UIHandler {
             scene.opponentHandArea = scene.add.rectangle(width/2,zonePad, zoneWidth, zoneHeight);
             scene.opponentHandArea.setStrokeStyle(4, 0xff69b4);
             
-            
             //OPP DECK
             scene.opponentDeckArea = scene.add.rectangle(width-100, 135, 155, 215);
             scene.opponentDeckArea.setStrokeStyle(3, 0x00ffff);
