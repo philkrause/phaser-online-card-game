@@ -17,7 +17,7 @@ export default class Lobby extends Phaser.Scene {
     create() {
         const width = this.scale.width
         const height = this.scale.height
-        const j = this.add.text(width/2, height/2, "Waiting for player 2..").setFontSize(36).setFontFamily('Trebuchet MS').setColor('#00ffff').setInteractive();
+        this.add.text(width/2, height/2, "Waiting for player 2..").setFontSize(36).setFontFamily('Trebuchet MS').setOrigin(.5).setColor('#00ffff')
         this.NetworkHandler = new NetworkHandler(this);
 
     }

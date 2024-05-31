@@ -3,21 +3,18 @@ import Lobby from "./scenes/lobby.js";
 import Game from "./scenes/game.js";
 import Title from "./scenes/title.js";
 
-
-
 const config = {
     type: Phaser.AUTO,
+    width: 800,
+    height: 1600,
+    zoom: 1,
     scale: {
-        // Fit to window
-        width: window.innerWidth,
-        height: window.innerHeight,
         mode: Phaser.Scale.FIT,
-        // Center vertically and horizontally
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
 
-    scene: [Title,Lobby, Game]
+    scene: [Game,Title, Lobby ]
+
 }
 
 const game = new Phaser.Game(config)
-

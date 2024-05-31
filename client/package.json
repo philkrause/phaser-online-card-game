@@ -1,7 +1,7 @@
 {
-  "name": "hacker-battles-client",
+  "name": "starwars-snap",
   "version": "1.1.0",
-  "description": "Hacker Battles",
+  "description": "starwars-snap",
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --config webpack/prod.js ",

@@ -4,8 +4,8 @@ export default class ZoneHandler {
         this.renderZone = (x, y) => {
 
             const dropzoneSize = {
-                w: 200,
-                h: 200
+                w: 145,
+                h: 205
             }
 
             let dropZone = scene.add.zone(x, y, dropzoneSize.w, dropzoneSize.h).setRectangleDropZone(dropzoneSize.w, dropzoneSize.h);

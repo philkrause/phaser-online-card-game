@@ -9,12 +9,12 @@ export default class UIHandler {
         //Location Zones
         const width = scene.scale.width
         const height = scene.scale.height
-        const zonePad = 600
+        const zonePad = 200
 
         console.log(`WIDTH : ${width}, HEIGHT: ${height}`)
 
         const zone1 = scene.dropZone = this.zoneHandler.renderZone(zonePad, height/2)
-        const zone2 = scene.dropZone = this.zoneHandler.renderZone(width/2, height/2)
+        const zone2 = scene.dropZone = this.zoneHandler.renderZone(zonePad + 200, height/2)
         const zone3 = scene.dropZone = this.zoneHandler.renderZone(width-zonePad, height/2)
 
         
@@ -30,13 +30,13 @@ export default class UIHandler {
 
         this.buildPlayerAreas = () => {
 
-            const zonePad = 100
-            const zoneHeight = 200
-            const zoneWidth = 600
+            const handZonePad = 100
+            const handZoneHeight = 200
+            const handZoneWidth = 600
 
             
             //OPP HAND
-            scene.opponentHandArea = scene.add.rectangle(width/2,zonePad, zoneWidth, zoneHeight);
+            scene.opponentHandArea = scene.add.rectangle(width/2,handZonePad, handZoneWidth, handZoneHeight);
             scene.opponentHandArea.setStrokeStyle(4, 0xff69b4);
             
             //OPP DECK
@@ -44,7 +44,7 @@ export default class UIHandler {
             scene.opponentDeckArea.setStrokeStyle(3, 0x00ffff);
             
             //PLAYER HAND
-            scene.playerHandArea = scene.add.rectangle(width/2,height-zonePad, zoneWidth, zoneHeight);
+            scene.playerHandArea = scene.add.rectangle(width/2,height-handZonePad, handZoneWidth, handZoneHeight);
             scene.playerHandArea.setStrokeStyle(4, 0xff69b4);
 
             //PLAYER DECK

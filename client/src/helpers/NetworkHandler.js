@@ -14,12 +14,12 @@ export default class NetworkHandler {
             
             this.room.onMessage("start-game", () => {
                 console.log("Start game message received.");
-                scene.start("game"); // Transition to the game scene
+                scene.scene.stop("Lobby")
+                scene.scene.start("Game");
             });
 
-            //Starting Deck
-            //scene.DeckHandler.dealCard(scene.scale.width-100, 135, "cardBack", "opponentCard");
-            //scene.DeckHandler.dealCard(scene.scale.width-100, scene.scale.height-135, "cardBack", "playerCard");
+            // scene.DeckHandler.dealCard(scene.scale.width-100, 135, "cardBack", "opponentCard");
+            // scene.DeckHandler.dealCard(scene.scale.width-100, scene.scale.height-135, "cardBack", "playerCard");
 
             this.room.onMessage("server-message", (message) => {
                 console.log("Server message: " + message)
